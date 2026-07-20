@@ -292,7 +292,7 @@ async def require_subscription_or_free(update: Update, context: ContextTypes.DEF
     if is_subscription_active(user_id):
         return True
     
-    text = "🔒 **هذا البوت يعمل بنظام الاشتراك.**\n\nلم يعد لديك اشتراك نشط.\nيرجى التواصل مع الأدمن للحصول على اشتراك.\n📞 تواصل مع المالك: @Hany263"
+    text = "🔒 **هذا البوت يعمل بنظام الاشتراك.**\n\nلم يعد لديك اشتراك نشط.\nيرجى التواصل مع الأدمن للحصول على اشتراك.\n📞 تواصل مع المالك: @Mahmoud_tiva"
     if is_callback and query:
         await query.edit_message_text(text, parse_mode='Markdown')
     else:
