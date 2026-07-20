@@ -37,8 +37,7 @@ SYSTEM_TRANSLATIONS = {
     'Flex_150': 'فليكس 150', 'Flex_300': 'فليكس 300',
     'Flex_Family_Member': 'فليكس فاميلي', 'Flex_Family': 'فليكس فاميلي', 'Family_Flex': 'فليكس فاميلي',
 }
-SUPPORTED_SYSTEMS = ["فليكس 260", "فليكس 130", "فليكس 90"]
-
+SUPPORTED_SYSTEMS = []
 # ================== إعداد التسجيل ==================
 logging.basicConfig(
     level=logging.INFO,
@@ -2263,9 +2262,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         try:
             token, expiry = await login_vodafone(phone, password)
             system = await get_current_system(token, phone)
-            if not any(s in system for s in SUPPORTED_SYSTEMS):
-                await update.message.reply_text(f"❌ عذراً، هذا البوت يعمل فقط مع باقات فليكس 260 أو فليكس 130 أو فليكس 90.\nباقاتك الحالية: {system}", parse_mode=None)
-                return
+# تم تعطيل التحقق من نوع النظام - السماح لجميع الأنظمة
             save_user(user_id, phone, token, expiry)
             save_number(user_id, phone)
             save_password(user_id, phone, password, 24)
